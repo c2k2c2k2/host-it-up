@@ -1,0 +1,233 @@
+
+
+
+/* box*/
+
+.service-area {
+    overflow: hidden;
+}
+.py-120 {
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+
+
+.service-area .section-title {
+    position: relative;
+}
+.section-title {
+    display: flex;
+    gap: 16px;
+    flex-direction: column;
+    z-index: 2;
+    position: relative;
+    justify-content: center;
+}
+
+
+@media (max-width: 1440px){
+.service-area .section-title .shape {
+    display: none;
+}}
+.service-area .section-title .shape {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translate(-100%, 100%);
+    animation: rubberBand 5s linear infinite;
+}
+
+.section-title .title {
+    color: #141F39;
+    font-family: "Urbanist", sans-serif;
+    margin-bottom: 0;
+    position: relative;
+    z-index: 10;
+}
+
+.section-title .desc {
+    font-size: 18px;
+    font-weight: 400;
+    font-family: "Open Sans", sans-serif;
+    color: #525256;
+    margin-bottom: 0;
+    line-height: 32px;
+}
+
+.service-area .section-title .btn-wrapper {
+    margin-top: 24px;
+}
+
+
+
+.theme-btn i, .wp-block-loginout a i, input.theme-btn i {
+    color: #fff;
+    font-size: 16px;
+    line-height: 30px;
+}
+
+.service-area .icon-card-wrapper {
+    margin-top: 32px;
+}
+.service-area .icon-card-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    gap: 40px;
+}
+
+.icon-card.style-2 {
+    background-color: #ffffff;
+    border-radius: 16px;
+    flex-direction: column;
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 12px 12px 50px 0px rgba(175, 186, 221, 0.2);
+}
+
+.icon-card.style-2 .icon {
+    border: none;
+    background-color: transparent;
+    position: relative;
+}
+.icon-card .icon {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    flex-shrink: 0;
+    border-radius: 50px;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: 1px solid #D6D6D6;
+}
+
+.service-area .icon-card.style-2 .icon:before {
+    width: 50px;
+    height: 50px;
+    border-radius: 84% 16% 34% 66% / 63% 29% 71% 37%;
+    background-color: #FEE1E6;
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: unset;
+}
+
+.icon-card.style-2 .icon img {
+    position: relative;
+    z-index: 3;
+    width: auto;
+}
+.icon-card .icon img {
+    width: 100%;
+    transition: all 0.5s ease-out;
+}
+
+.icon-card.style-2 .content {
+    padding-right: 0;
+}
+.icon-card .content {
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+}
+
+.icon-card .content .title {
+    font-family: "Urbanist", sans-serif;
+    font-size: 24px;
+    line-height: 34px;
+    color: #141F39;
+    margin-bottom: 0;
+}
+
+.icon-card.style-2 .content .desc {
+    font-size: 18px;
+    line-height: 32px;
+}
+.icon-card .content .desc {
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px;
+    line-height: 32px;
+    font-weight: 400;
+    color: #525256;
+    margin-bottom: 0;
+}
+
+.icon-card .content .more-btn {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 31px;
+    color: #141F39;
+    margin-top: 8px;
+}
+
+@media only screen and (min-width: 0px) and (max-width: 767px){
+.py-sm-60 {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.icon{
+	margin:0 auto;
+	
+	}
+}
+
+@media (max-width: 991px){
+.section-title {
+    align-items: center;
+    text-align: center;
+}
+}
+
+@media (max-width: 1440px){
+.service-area .section-title .shape {
+    display: none;
+}
+}
+
+@media only screen and (min-width: 0px) and (max-width: 767px){
+.section-title .short-title {
+    font-size: 20px;
+}
+
+@media only screen and (min-width: 0px) and (max-width: 767px){
+.section-title .title {
+    font-size: 38px;
+    line-height: 48px;
+}
+}
+
+@media (max-width: 1900px){
+.service-area .icon-card-wrapper {
+    margin-top: 32px;
+}
+}
+@media only screen and (min-width: 0px) and (max-width: 767px){
+.service-area .icon-card-wrapper {
+    margin-top: 24px;
+    grid-template-columns: repeat(1, 1fr);
+}
+}
+
+@media only screen and (min-width: 0px) and (max-width: 767px){
+.icon-card .content {
+    padding-right: 0;
+    text-align: center;
+}}
+
+@media only screen and (min-width: 0px) and (max-width: 767px){
+.icon-card.style-2 .content .desc {
+    font-size: 16px;
+}
+}
+
+
+/*  web hosting box*/
+
+
+
