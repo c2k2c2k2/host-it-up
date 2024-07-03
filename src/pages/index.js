@@ -1,13 +1,56 @@
 import { Inter } from "next/font/google";
 import Script from "next/script";
+import { useEffect, useState } from "react";
+import { use } from "../../public/asset/js/plugins/swiper copy";
+import Swiper from "swiper";
+import { Pagination } from "swiper/modules";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const [accordion, setAccordion] = useState(null);
+
+  const handleClick = (accordionTarget) => {
+    if (accordion == accordionTarget) {
+      setAccordion(null);
+    } else setAccordion(accordionTarget);
+  };
+
+  useEffect(() => {
+    if (typeof window != "undefined") {
+      const container = document.querySelector(".rts-testimonial__slider");
+      const pagination = document.querySelector(".rts-dot__button");
+
+      var swiper = new Swiper(container, {
+        loop: true,
+        modules: [Pagination],
+        slidesPerView: 1,
+        spaceBetween: 30,
+        autoplay: {
+          delay: 3000, // 2.3 second delay
+        },
+        pagination: {
+          el: pagination,
+          clickable: true,
+        },
+        breakpoints: {
+          768: {
+            slidesPerView: 2,
+          },
+          992: {
+            slidesPerView: 3,
+          },
+        },
+      });
+
+      return () => {
+        if (container) swiper.destroy();
+      };
+    }
+  }, []);
+
   return (
     <>
-
-
       <div className="header-wrapper">
         <div className="container header-container">
           <div className="row">
@@ -34,7 +77,10 @@ export default function Home() {
                   className="collapse navbar-collapse"
                   id="navbarSupportedContent"
                 >
-                  <ul className="navbar-nav mr-auto" style={{ paddingLeft: 30 }}>
+                  <ul
+                    className="navbar-nav mr-auto"
+                    style={{ paddingLeft: 30 }}
+                  >
                     <div className="menutop-wrap">
                       <a
                         href="https://manage.hostitup.in/index.php?rp=/login"
@@ -77,14 +123,19 @@ export default function Home() {
                         aria-labelledby="navbarDropdown"
                       >
                         <a className="dropdown-item" href="shared-hosting.html">
-                          <i className="fas fa-cube fa-2x icob text-shadow1"> </i>
+                          <i className="fas fa-cube fa-2x icob text-shadow1">
+                            {" "}
+                          </i>
                           <h6>Shared Hosting</h6>
                           <p>
-                            Looking for flexible and reliable hosting plans | Start{" "}
-                            <b>Rs 999/year</b>
+                            Looking for flexible and reliable hosting plans |
+                            Start <b>Rs 999/year</b>
                           </p>
                         </a>
-                        <a className="dropdown-item" href="wordpress-hosting.html">
+                        <a
+                          className="dropdown-item"
+                          href="wordpress-hosting.html"
+                        >
                           <i className="fa fa-wordpress fa-2x icob text-shadow1">
                             {" "}
                           </i>
@@ -98,19 +149,21 @@ export default function Home() {
                                 padding: "0px 5px",
                                 marginLeft: 5,
                                 borderRadius: 3,
-                                fontWeight: 600
+                                fontWeight: 600,
                               }}
                             >
                               10% OFF
                             </span>
                           </h6>
                           <p>
-                            Looking for low price yearly wordpress hosting plans |
-                            Start <b>Rs 1499/year</b>
+                            Looking for low price yearly wordpress hosting plans
+                            | Start <b>Rs 1499/year</b>
                           </p>
                         </a>
                         <a className="dropdown-item" href="cloud-hosting.html">
-                          <i className="fas fa-cloud fa-2x icob text-shadow1"> </i>
+                          <i className="fas fa-cloud fa-2x icob text-shadow1">
+                            {" "}
+                          </i>
                           <h6>
                             Cloud Hosting
                             <span
@@ -121,7 +174,7 @@ export default function Home() {
                                 padding: "0px 5px",
                                 marginLeft: 5,
                                 borderRadius: 3,
-                                fontWeight: 600
+                                fontWeight: 600,
                               }}
                             >
                               10% OFF
@@ -133,8 +186,13 @@ export default function Home() {
                             <b>Rs 1999/year</b>
                           </p>
                         </a>
-                        <a className="dropdown-item" href="premium-hosting.html">
-                          <i className="fas fa-cubes fa-2x icob text-shadow1"> </i>
+                        <a
+                          className="dropdown-item"
+                          href="premium-hosting.html"
+                        >
+                          <i className="fas fa-cubes fa-2x icob text-shadow1">
+                            {" "}
+                          </i>
                           <h6>
                             Premium Hosting{" "}
                             <span
@@ -145,7 +203,7 @@ export default function Home() {
                                 padding: "0px 5px",
                                 marginLeft: 5,
                                 borderRadius: 3,
-                                fontWeight: 600
+                                fontWeight: 600,
                               }}
                             >
                               20% OFF
@@ -153,7 +211,8 @@ export default function Home() {
                           </h6>
                           <p>
                             Perfect for Zero Downtime | High Traffic Websites |
-                            Node.Js | 5X Turbo Faster | Start <b>Rs 2999/year</b>
+                            Node.Js | 5X Turbo Faster | Start{" "}
+                            <b>Rs 2999/year</b>
                           </p>
                         </a>
                       </div>
@@ -174,8 +233,13 @@ export default function Home() {
                         className="dropdown-menu"
                         aria-labelledby="navbarDropdown"
                       >
-                        <a className="dropdown-item" href="domain-name-search.html">
-                          <i className="fas fa-globe fa-2x icob text-shadow1"> </i>
+                        <a
+                          className="dropdown-item"
+                          href="domain-name-search.html"
+                        >
+                          <i className="fas fa-globe fa-2x icob text-shadow1">
+                            {" "}
+                          </i>
                           <h6>Domain Registration</h6>
                           <p>Search &amp; Register Your Domain Name!</p>
                         </a>
@@ -207,7 +271,10 @@ export default function Home() {
                         className="dropdown-menu"
                         aria-labelledby="navbarDropdown"
                       >
-                        <a className="dropdown-item" href="reseller-hosting.html">
+                        <a
+                          className="dropdown-item"
+                          href="reseller-hosting.html"
+                        >
                           <i className="fas fa-microchip fa-2x icob text-shadow1">
                             {" "}
                           </i>
@@ -221,7 +288,7 @@ export default function Home() {
                                 padding: "0px 5px",
                                 marginLeft: 5,
                                 borderRadius: 3,
-                                fontWeight: 600
+                                fontWeight: 600,
                               }}
                             >
                               20% OFF
@@ -272,7 +339,10 @@ export default function Home() {
                           <h6>Contact Us</h6>
                           <p>Contact Details</p>
                         </a>
-                        <a className="dropdown-item" href="term-and-condition.html">
+                        <a
+                          className="dropdown-item"
+                          href="term-and-condition.html"
+                        >
                           <i className="fas fa-handshake fa-2x icob text-shadow1">
                             {" "}
                           </i>
@@ -280,7 +350,9 @@ export default function Home() {
                           <p>Read about our terms and condition</p>
                         </a>
                         <a className="dropdown-item" href="refund-policy.html">
-                          <i className="fas fa-money fa-2x icob text-shadow1"> </i>
+                          <i className="fas fa-money fa-2x icob text-shadow1">
+                            {" "}
+                          </i>
                           <h6>Refund Policy</h6>
                           <p>Reads our refund policy</p>
                         </a>
@@ -334,16 +406,19 @@ export default function Home() {
                 <span className="span-ki-text first-span">
                   Web <div className="block-it" /> Hosting
                 </span>
-                <span className="span-ki-text first-span">For Your Business</span>
+                <span className="span-ki-text first-span">
+                  For Your Business
+                </span>
               </h1>
               <span className="udlinehlelo-two" />
               <br />
               <p className="shining">
                 Get Started! With HostItUp's Cheap Web Hosting. HostItUp has the
                 perfect hosting solution for you. Experience the difference with
-                HostItUp – where quality and affordability meet seamlessly. Grab a
-                free domain on purchasing our web hosting plan and experience the
-                ultimate performance and a high quality 24/7 Customer Support.
+                HostItUp – where quality and affordability meet seamlessly. Grab
+                a free domain on purchasing our web hosting plan and experience
+                the ultimate performance and a high quality 24/7 Customer
+                Support.
               </p>
               <ul>
                 <li className="span-ki-text">
@@ -443,8 +518,8 @@ export default function Home() {
       >
         <h2 className="website-cmain">Our Services &amp; Features</h2>
         <p>
-          Hostitup provide services with the aim to keep client happy - we try our
-          best in every aspect.
+          Hostitup provide services with the aim to keep client happy - we try
+          our best in every aspect.
         </p>
         <div className="center-two">
           <div className="col-lg-4 col-md-5 col-sm-5 col-12 highly-tap">
@@ -457,7 +532,9 @@ export default function Home() {
                 <div className="flex-qq items-center gapyy">
                   <h5 className="font-boldy">₹99</h5>
                   <div className="flex-items-left">
-                    <h6 className="text-sm font-semibold text-slate-600">INR</h6>
+                    <h6 className="text-sm font-semibold text-slate-600">
+                      INR
+                    </h6>
                     <h6 className="billed-boll">Billed monthly</h6>
                   </div>
                 </div>
@@ -558,7 +635,10 @@ export default function Home() {
                   </g>
                 </svg>
                 <div className="no-height">
-                  <p className="text-xs" style={{ fontSize: "11px !important" }}>
+                  <p
+                    className="text-xs"
+                    style={{ fontSize: "11px !important" }}
+                  >
                     You'll fund
                   </p>
                   <p
@@ -567,7 +647,10 @@ export default function Home() {
                   >
                     Planting a tree
                   </p>
-                  <p className="text-xs" style={{ fontSize: "11px !important" }}>
+                  <p
+                    className="text-xs"
+                    style={{ fontSize: "11px !important" }}
+                  >
                     &amp; we'll send a photo
                   </p>
                 </div>
@@ -583,7 +666,8 @@ export default function Home() {
                   <i className="fa-solid fa-check" /> <b>5</b> Email Account
                 </li>
                 <li>
-                  <i className="fa-solid fa-check" /> <b>Free SSL</b> Certificate
+                  <i className="fa-solid fa-check" /> <b>Free SSL</b>{" "}
+                  Certificate
                 </li>
                 <li>
                   <i className="fa-solid fa-xmark" style={{ color: "red" }} />{" "}
@@ -611,7 +695,9 @@ export default function Home() {
                 <div className="flex-qq items-center gapyy">
                   <h5 className="font-boldy">₹149</h5>
                   <div className="flex-items-left">
-                    <h6 className="text-sm font-semibold text-slate-600">INR</h6>
+                    <h6 className="text-sm font-semibold text-slate-600">
+                      INR
+                    </h6>
                     <h6 className="billed-boll">Billed monthly</h6>
                   </div>
                 </div>
@@ -712,7 +798,10 @@ export default function Home() {
                   </g>
                 </svg>
                 <div className="no-height">
-                  <p className="text-xs" style={{ fontSize: "11px !important" }}>
+                  <p
+                    className="text-xs"
+                    style={{ fontSize: "11px !important" }}
+                  >
                     You'll fund
                   </p>
                   <p
@@ -721,7 +810,10 @@ export default function Home() {
                   >
                     Planting a tree
                   </p>
-                  <p className="text-xs" style={{ fontSize: "11px !important" }}>
+                  <p
+                    className="text-xs"
+                    style={{ fontSize: "11px !important" }}
+                  >
                     &amp; we'll send a photo
                   </p>
                 </div>
@@ -737,7 +829,8 @@ export default function Home() {
                   <i className="fa-solid fa-check" /> <b>10</b> Email Account
                 </li>
                 <li>
-                  <i className="fa-solid fa-check" /> <b>Free SSL</b> Certificate
+                  <i className="fa-solid fa-check" /> <b>Free SSL</b>{" "}
+                  Certificate
                 </li>
                 <li>
                   <i className="fa-solid fa-xmark" style={{ color: "red" }} />{" "}
@@ -765,7 +858,9 @@ export default function Home() {
                 <div className="flex-qq items-center gapyy">
                   <h5 className="font-boldy">₹199</h5>
                   <div className="flex-items-left">
-                    <h6 className="text-sm font-semibold text-slate-600">INR</h6>
+                    <h6 className="text-sm font-semibold text-slate-600">
+                      INR
+                    </h6>
                     <h6 className="billed-boll">Billed monthly</h6>
                   </div>
                 </div>
@@ -866,7 +961,10 @@ export default function Home() {
                   </g>
                 </svg>
                 <div className="no-height">
-                  <p className="text-xs" style={{ fontSize: "11px !important" }}>
+                  <p
+                    className="text-xs"
+                    style={{ fontSize: "11px !important" }}
+                  >
                     You'll fund
                   </p>
                   <p
@@ -875,7 +973,10 @@ export default function Home() {
                   >
                     Planting a tree
                   </p>
-                  <p className="text-xs" style={{ fontSize: "11px !important" }}>
+                  <p
+                    className="text-xs"
+                    style={{ fontSize: "11px !important" }}
+                  >
                     &amp; we'll send a photo
                   </p>
                 </div>
@@ -891,7 +992,8 @@ export default function Home() {
                   <i className="fa-solid fa-check" /> <b>30</b> Email Account
                 </li>
                 <li>
-                  <i className="fa-solid fa-check" /> <b>Free SSL</b> Certificate
+                  <i className="fa-solid fa-check" /> <b>Free SSL</b>{" "}
+                  Certificate
                 </li>
                 <li>
                   <i className="fa-solid fa-check" /> <b>Free</b> Domain
@@ -920,7 +1022,9 @@ export default function Home() {
                 <div className="flex-qq items-center gapyy">
                   <h5 className="font-boldy">₹249</h5>
                   <div className="flex-items-left">
-                    <h6 className="text-sm font-semibold text-slate-600">INR</h6>
+                    <h6 className="text-sm font-semibold text-slate-600">
+                      INR
+                    </h6>
                     <h6 className="billed-boll">Billed monthly</h6>
                   </div>
                 </div>
@@ -1021,7 +1125,10 @@ export default function Home() {
                   </g>
                 </svg>
                 <div className="no-height">
-                  <p className="text-xs" style={{ fontSize: "11px !important" }}>
+                  <p
+                    className="text-xs"
+                    style={{ fontSize: "11px !important" }}
+                  >
                     You'll fund
                   </p>
                   <p
@@ -1030,7 +1137,10 @@ export default function Home() {
                   >
                     Planting a tree
                   </p>
-                  <p className="text-xs" style={{ fontSize: "11px !important" }}>
+                  <p
+                    className="text-xs"
+                    style={{ fontSize: "11px !important" }}
+                  >
                     &amp; we'll send a photo
                   </p>
                 </div>
@@ -1046,7 +1156,8 @@ export default function Home() {
                   <i className="fa-solid fa-check" /> <b>35</b> Email Account
                 </li>
                 <li>
-                  <i className="fa-solid fa-check" /> <b>Free SSL</b> Certificate
+                  <i className="fa-solid fa-check" /> <b>Free SSL</b>{" "}
+                  Certificate
                 </li>
                 <li>
                   <i className="fa-solid fa-check" /> <b>Free</b> Domain
@@ -1081,8 +1192,8 @@ export default function Home() {
             <div className="col-12 text-center mb-5">
               <h5 className="website-cmain">Why To Choose HostItUp?</h5>
               <p className="text-muted">
-                We focus on successful sites for web designers, developers, bloggers
-                and online businesses.
+                We focus on successful sites for web designers, developers,
+                bloggers and online businesses.
               </p>
             </div>
           </div>
@@ -1101,8 +1212,9 @@ export default function Home() {
                 </h3>
                 <p className="text-muted">
                   Count on HostItUp for reliable support. Our friendly,
-                  knowledgeable team is available to promptly assist you, ensuring a
-                  smooth experience and your peace of mind. We are always online.
+                  knowledgeable team is available to promptly assist you,
+                  ensuring a smooth experience and your peace of mind. We are
+                  always online.
                 </p>
               </div>
             </div>
@@ -1138,9 +1250,10 @@ export default function Home() {
                   Easy to Use Hosting
                 </h3>
                 <p className="text-muted">
-                  HostItUp places your peace of mind first. Our Support team, known
-                  for their friendly, fast, and knowledgeable assistance, is ready
-                  to provide effective solutions whenever you need help.
+                  HostItUp places your peace of mind first. Our Support team,
+                  known for their friendly, fast, and knowledgeable assistance,
+                  is ready to provide effective solutions whenever you need
+                  help.
                 </p>
               </div>
             </div>
@@ -1158,8 +1271,9 @@ export default function Home() {
                 </h3>
                 <p className="text-muted">
                   Rely on us for steadfast hosting. We're committed to zero
-                  downtime, ensuring constant website accessibility. With our solid
-                  99.9% uptime guarantee, your online presence is safe and sound.
+                  downtime, ensuring constant website accessibility. With our
+                  solid 99.9% uptime guarantee, your online presence is safe and
+                  sound.
                 </p>
               </div>
             </div>
@@ -1177,9 +1291,9 @@ export default function Home() {
                 </h3>
                 <p className="text-muted">
                   We prioritize security, maintaining robust infrastructure for
-                  fault tolerance and DDoS resistance, ensuring high availability
-                  with a 99.9% uptime SLA across all accounts. Secure now site with
-                  us.
+                  fault tolerance and DDoS resistance, ensuring high
+                  availability with a 99.9% uptime SLA across all accounts.
+                  Secure now site with us.
                 </p>
               </div>
             </div>
@@ -1197,8 +1311,8 @@ export default function Home() {
                 </h3>
                 <p className="text-muted">
                   Data security is our paramount concern. We conduct daily and
-                  weekly off-site backups to eliminate data loss worries, providing
-                  you with peace of mind and reliability.
+                  weekly off-site backups to eliminate data loss worries,
+                  providing you with peace of mind and reliability.
                 </p>
               </div>
             </div>
@@ -1229,14 +1343,14 @@ export default function Home() {
                     backgroundRepeat: "no-repeat",
                     visibility: "visible",
                     animationDelay: "0.3s",
-                    animationName: "fadeInUp"
+                    animationName: "fadeInUp",
                   }}
                 >
                   <div
                     className="section-heading"
                     style={{
                       backgroundSize: "100%",
-                      backgroundRepeat: "no-repeat"
+                      backgroundRepeat: "no-repeat",
                     }}
                   >
                     <h3 className="text-of-features">Top-Notch Security</h3>
@@ -1245,30 +1359,31 @@ export default function Home() {
                       <span className="heading-info-span">Security</span>
                     </h2>
                     <p className="para-infop">
-                      Our web hosting solutions are meticulously crafted to deliver
-                      lightning-fast performance and robust security measures,
-                      ensuring your online presence is both swift and secure. With
-                      state-of-the-art servers and cutting-edge technology, we
-                      guarantee minimal downtime and rapid load times, enhancing
-                      user experience and boosting your site's search engine
-                      rankings. Our advanced security protocols protect your data
-                      from threats, providing peace of mind in an ever-evolving
-                      cyber landscape, keeping you ahead of potential cyber threats
-                      and ensuring continuous, service for your business.
+                      Our web hosting solutions are meticulously crafted to
+                      deliver lightning-fast performance and robust security
+                      measures, ensuring your online presence is both swift and
+                      secure. With state-of-the-art servers and cutting-edge
+                      technology, we guarantee minimal downtime and rapid load
+                      times, enhancing user experience and boosting your site's
+                      search engine rankings. Our advanced security protocols
+                      protect your data from threats, providing peace of mind in
+                      an ever-evolving cyber landscape, keeping you ahead of
+                      potential cyber threats and ensuring continuous, service
+                      for your business.
                     </p>
                   </div>
                   <div
                     className="row"
                     style={{
                       backgroundSize: "100%",
-                      backgroundRepeat: "no-repeat"
+                      backgroundRepeat: "no-repeat",
                     }}
                   >
                     <div
                       className="col-md-5"
                       style={{
                         backgroundSize: "100%",
-                        backgroundRepeat: "no-repeat"
+                        backgroundRepeat: "no-repeat",
                       }}
                     ></div>
                   </div>
@@ -1277,7 +1392,7 @@ export default function Home() {
                     style={{
                       backgroundSize: "100%",
                       backgroundRepeat: "no-repeat",
-                      marginTop: "-10px !important"
+                      marginTop: "-10px !important",
                     }}
                   ></div>
                   <a
@@ -1291,7 +1406,10 @@ export default function Home() {
               </div>
               <div
                 className="col-lg-5"
-                style={{ backgroundSize: "100%", backgroundRepeat: "no-repeat" }}
+                style={{
+                  backgroundSize: "100%",
+                  backgroundRepeat: "no-repeat",
+                }}
               >
                 <div
                   className="marketing-img wow fadeInUp animated"
@@ -1299,7 +1417,7 @@ export default function Home() {
                     backgroundSize: "100%",
                     backgroundRepeat: "no-repeat",
                     visibility: "visible",
-                    animationName: "fadeInUp"
+                    animationName: "fadeInUp",
                   }}
                 >
                   <img
@@ -1332,7 +1450,7 @@ export default function Home() {
                 backgroundSize: "100%",
                 backgroundRepeat: "no-repeat",
                 visibility: "visible",
-                animationName: "fadeInUp"
+                animationName: "fadeInUp",
               }}
             >
               <br />
@@ -1352,12 +1470,15 @@ export default function Home() {
                 backgroundRepeat: "no-repeat",
                 visibility: "visible",
                 animationDelay: "0.3s",
-                animationName: "fadeInUp"
+                animationName: "fadeInUp",
               }}
             >
               <div
                 className="p-sm-30 pb-sm-0 mb-sm-0"
-                style={{ backgroundSize: "100%", backgroundRepeat: "no-repeat" }}
+                style={{
+                  backgroundSize: "100%",
+                  backgroundRepeat: "no-repeat",
+                }}
               >
                 <h3 className="text-of-features">24/7 Customer Support</h3>
                 <h2 className="heading-info">
@@ -1365,31 +1486,35 @@ export default function Home() {
                   <span className="heading-info-span">Guide You </span>
                 </h2>
                 <p className="para-infop">
-                  Our dedicated team of experts is always available to address any
-                  issues, answer your queries, and ensure your web hosting
-                  experience is smooth and efficient. Whether it's the middle of the
-                  night or a holiday, you can count on us for prompt and
+                  Our dedicated team of experts is always available to address
+                  any issues, answer your queries, and ensure your web hosting
+                  experience is smooth and efficient. Whether it's the middle of
+                  the night or a holiday, you can count on us for prompt and
                   professional support through various channels, including live
                   chat, email, and phone. With HostItUp, you never have to worry
-                  about downtime or technical difficulties, as our team is committed
-                  to keeping your website running flawlessly at all times.
+                  about downtime or technical difficulties, as our team is
+                  committed to keeping your website running flawlessly at all
+                  times.
                 </p>
                 <div
                   className="row"
-                  style={{ backgroundSize: "100%", backgroundRepeat: "no-repeat" }}
+                  style={{
+                    backgroundSize: "100%",
+                    backgroundRepeat: "no-repeat",
+                  }}
                 >
                   <div
                     className="col-md-5"
                     style={{
                       backgroundSize: "100%",
-                      backgroundRepeat: "no-repeat"
+                      backgroundRepeat: "no-repeat",
                     }}
                   ></div>
                   <div
                     className="col-md-5"
                     style={{
                       backgroundSize: "100%",
-                      backgroundRepeat: "no-repeat"
+                      backgroundRepeat: "no-repeat",
                     }}
                   ></div>
                 </div>
@@ -1398,7 +1523,7 @@ export default function Home() {
                   style={{
                     backgroundSize: "100%",
                     backgroundRepeat: "no-repeat",
-                    marginTop: "-10px !important"
+                    marginTop: "-10px !important",
                   }}
                 />
                 <a
@@ -1422,8 +1547,8 @@ export default function Home() {
               <div className="rts-section w-460 text-center">
                 <h3 className="website-cmain">Our Customer Success Reviews</h3>
                 <p className="rts-section__description">
-                  From 24/7 support that acts as your extended team to incredibly
-                  fast website performance
+                  From 24/7 support that acts as your extended team to
+                  incredibly fast website performance
                 </p>
               </div>
             </div>
@@ -1447,8 +1572,9 @@ export default function Home() {
                       <div className="content">
                         <h3 className="h3-test">Great Support</h3>
                         <p className="para-customer">
-                          The support system is really great and the team is really
-                          very friendly and are always ready to help me out.
+                          The support system is really great and the team is
+                          really very friendly and are always ready to help me
+                          out.
                         </p>
                       </div>
                       <div className="author__meta">
@@ -1481,8 +1607,8 @@ export default function Home() {
                       <div className="content">
                         <h3 className="h3-test">User Friendly Panel</h3>
                         <p className="para-customer">
-                          Using HostItUp's dashboard really feels very smooth and
-                          cool and there control panel is very amazing.
+                          Using HostItUp's dashboard really feels very smooth
+                          and cool and there control panel is very amazing.
                         </p>
                       </div>
                       <div className="author__meta">
@@ -1515,8 +1641,8 @@ export default function Home() {
                       <div className="content">
                         <h3 className="h3-test">Amazing performance</h3>
                         <p className="para-customer">
-                          Amazed with HostItUp's super fast performance and as well
-                          as the server is super fast with 0 downtime.
+                          Amazed with HostItUp's super fast performance and as
+                          well as the server is super fast with 0 downtime.
                         </p>
                       </div>
                       <div className="author__meta">
@@ -1549,9 +1675,9 @@ export default function Home() {
                       <div className="content">
                         <h3 className="h3-test">Seamless Experience</h3>
                         <p className="para-customer">
-                          Overall as a blogger for me HostItUp is the best platform
-                          for hosting my blog sites as it can handle High Traffic
-                          Websites.
+                          Overall as a blogger for me HostItUp is the best
+                          platform for hosting my blog sites as it can handle
+                          High Traffic Websites.
                         </p>
                       </div>
                       <div className="author__meta">
@@ -1590,8 +1716,8 @@ export default function Home() {
               <div className="px-md-12 text-center mb-9 mb-lg-13">
                 <h2 className="website-cmain">Shared Web Hosting FAQs</h2>
                 <p className="rts-section__description space-questions">
-                  Below you'll find answers to the questions we get asked the most
-                  about our services.
+                  Below you'll find answers to the questions we get asked the
+                  most about our services.
                 </p>
               </div>
             </div>
@@ -1606,29 +1732,33 @@ export default function Home() {
                     id="heading4-1"
                   >
                     <button
-                      className="btn-reset coodiv-text-11 text-left text-rgb(15 23 42)ish-blue p-0 accordion-trigger arrow-icon w-100 maintexttt"
+                      className="btn-reset coodiv-text-11 text-left text-rgb(15 23 42)ish-blue p-0 accordion-trigger arrow-icon w-100 maintexttt accordion-section-title"
                       type="button"
                       data-toggle="collapse"
                       data-target="#collapse4-1"
                       aria-expanded="false"
+                      onClick={() => handleClick("collapse4-1")}
                       aria-controls="collapse4-1"
                     >
                       Do I need to relicense an item each time I use it?
                     </button>
                   </div>
-                  <div
-                    id="collapse4-1"
-                    className="collapse"
-                    aria-labelledby="heading4-1"
-                    data-parent="#accordionExample"
-                  >
-                    <div className="card-body coodiv-color-rgb(15 23 42)ish-blue-opacity-7 pt-0 pl-9 pr-15 coodiv-text-11 pb-9">
-                      Yes you do. You need a license for each end project. This
-                      ensures contributors are paid for your usage of each asset
-                      &amp; you and your clients have the legal right to use the
-                      item.
+                  {accordion == "collapse4-1" && (
+                    <div
+                      id="collapse4-1"
+                      className="collapse"
+                      aria-labelledby="heading4-1"
+                      data-parent="#accordionExample"
+                      style={{ display: "block" }}
+                    >
+                      <div className="card-body coodiv-color-rgb(15 23 42)ish-blue-opacity-7 pt-0 pl-9 pr-15 coodiv-text-11 pb-9">
+                        Yes you do. You need a license for each end project.
+                        This ensures contributors are paid for your usage of
+                        each asset &amp; you and your clients have the legal
+                        right to use the item.
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </div>
                 <div className="rounded-20 shadow-custom mb-3 bg-white overflow-hidden">
                   <div
@@ -1636,31 +1766,35 @@ export default function Home() {
                     id="heading4-2"
                   >
                     <button
-                      className="btn-reset coodiv-text-11 text-left text-rgb(15 23 42)ish-blue p-0 accordion-trigger arrow-icon w-100 maintexttt"
+                      className="btn-reset coodiv-text-11 text-left text-rgb(15 23 42)ish-blue p-0 accordion-trigger arrow-icon w-100 maintexttt accordion-section-title"
                       type="button"
+                      onClick={() => handleClick("collapse4-2")}
                       data-toggle="collapse"
                       data-target="#collapse4-2"
                       aria-expanded="false"
                       aria-controls="collapse4-2"
                     >
-                      Do I need to relicense Fonts or Addons each time I use them in
-                      a project?
+                      Do I need to relicense Fonts or Addons each time I use
+                      them in a project?
                     </button>
                   </div>
-                  <div
-                    id="collapse4-2"
-                    className="collapse"
-                    aria-labelledby="heading4-2"
-                    data-parent="#accordionExample"
-                  >
-                    <div className="card-body coodiv-color-rgb(15 23 42)ish-blue-opacity-7 pt-0 pl-9 pr-15 coodiv-text-11 pb-9">
-                      No, you do not need to relicense fonts or addons for each
-                      project. You only need to register them once for the
-                      installation on your device. If registering a font or addon to
-                      another computer you use, you need to issue a new license for
-                      that installation.
+                  {accordion == "collapse4-2" && (
+                    <div
+                      id="collapse4-2"
+                      className="collapse"
+                      aria-labelledby="heading4-2"
+                      data-parent="#accordionExample"
+                      style={{ display: "block" }}
+                    >
+                      <div className="card-body coodiv-color-rgb(15 23 42)ish-blue-opacity-7 pt-0 pl-9 pr-15 coodiv-text-11 pb-9">
+                        No, you do not need to relicense fonts or addons for
+                        each project. You only need to register them once for
+                        the installation on your device. If registering a font
+                        or addon to another computer you use, you need to issue
+                        a new license for that installation.
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </div>
                 <div className="rounded-20 shadow-custom mb-3 bg-white overflow-hidden">
                   <div
@@ -1668,8 +1802,9 @@ export default function Home() {
                     id="heading4-3"
                   >
                     <button
-                      className="btn-reset coodiv-text-11 text-left text-rgb(15 23 42)ish-blue p-0 accordion-trigger arrow-icon w-100 maintexttt"
+                      className="btn-reset coodiv-text-11 text-left text-rgb(15 23 42)ish-blue p-0 accordion-trigger arrow-icon w-100 maintexttt accordion-section-title"
                       type="button"
+                      onClick={() => handleClick("collapse4-3")}
                       data-toggle="collapse"
                       data-target="#collapse4-3"
                       aria-expanded="false"
@@ -1678,20 +1813,24 @@ export default function Home() {
                       Do I need to credit the author of the item?
                     </button>
                   </div>
-                  <div
-                    id="collapse4-3"
-                    className="collapse"
-                    aria-labelledby="heading4-3"
-                    data-parent="#accordionExample"
-                  >
-                    <div className="card-body coodiv-color-rgb(15 23 42)ish-blue-opacity-7 pt-0 pl-9 pr-15 coodiv-text-11 pb-9">
-                      No, it's not mandatory to give the author credit. But we do
-                      encourage that if your end product has credits as part of its
-                      design (such as a film or TV show), please credit the author
-                      and Envato. Also, as the author retains ownership of the item,
-                      you shouldn't claim copyright in the item.
+                  {accordion == "collapse4-3" && (
+                    <div
+                      id="collapse4-3"
+                      className="collapse"
+                      aria-labelledby="heading4-3"
+                      data-parent="#accordionExample"
+                      style={{ display: "block" }}
+                    >
+                      <div className="card-body coodiv-color-rgb(15 23 42)ish-blue-opacity-7 pt-0 pl-9 pr-15 coodiv-text-11 pb-9">
+                        No, it's not mandatory to give the author credit. But we
+                        do encourage that if your end product has credits as
+                        part of its design (such as a film or TV show), please
+                        credit the author and Envato. Also, as the author
+                        retains ownership of the item, you shouldn't claim
+                        copyright in the item.
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </div>
                 <div className="rounded-20 shadow-custom mb-3 bg-white overflow-hidden">
                   <div
@@ -1699,8 +1838,9 @@ export default function Home() {
                     id="heading4-4"
                   >
                     <button
-                      className="btn-reset coodiv-text-11 text-left text-rgb(15 23 42)ish-blue p-0 accordion-trigger arrow-icon w-100 maintexttt"
+                      className="btn-reset coodiv-text-11 text-left text-rgb(15 23 42)ish-blue p-0 accordion-trigger arrow-icon w-100 maintexttt accordion-section-title"
                       type="button"
+                      onClick={() => handleClick("collapse4-4")}
                       data-toggle="collapse"
                       data-target="#collapse4-4"
                       aria-expanded="false"
@@ -1709,21 +1849,25 @@ export default function Home() {
                       Can I mix two Envato Elements website templates together?
                     </button>
                   </div>
-                  <div
-                    id="collapse4-4"
-                    className="collapse"
-                    aria-labelledby="heading4-4"
-                    data-parent="#accordionExample"
-                  >
-                    <div className="card-body coodiv-color-rgb(15 23 42)ish-blue-opacity-7 pt-0 pl-9 pr-15 coodiv-text-11 pb-9">
-                      Yes, you can modify the items you download on Elements to
-                      create a customised implementation of the item. The license
-                      starts when you Register your use of the item and the license
-                      is only valid if you complete the End Product while your
-                      subscription is active. Then the license continues for the
-                      life of the End Product (even if your subscription ends).
+                  {accordion == "collapse4-4" && (
+                    <div
+                      id="collapse4-4"
+                      className="collapse"
+                      aria-labelledby="heading4-4"
+                      data-parent="#accordionExample"
+                      style={{ display: "block" }}
+                    >
+                      <div className="card-body coodiv-color-rgb(15 23 42)ish-blue-opacity-7 pt-0 pl-9 pr-15 coodiv-text-11 pb-9">
+                        Yes, you can modify the items you download on Elements
+                        to create a customised implementation of the item. The
+                        license starts when you Register your use of the item
+                        and the license is only valid if you complete the End
+                        Product while your subscription is active. Then the
+                        license continues for the life of the End Product (even
+                        if your subscription ends).
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </div>
                 <div
                   className="rounded-20 shadow-custom mb-3 bg-white overflow-hidden"
@@ -1734,8 +1878,9 @@ export default function Home() {
                     id="heading4-5"
                   >
                     <button
-                      className="btn-reset coodiv-text-11 text-left text-rgb(15 23 42)ish-blue p-0 accordion-trigger arrow-icon w-100 maintexttt"
+                      className="btn-reset coodiv-text-11 text-left text-rgb(15 23 42)ish-blue p-0 accordion-trigger arrow-icon w-100 maintexttt accordion-section-title"
                       type="button"
+                      onClick={() => handleClick("collapse4-5")}
                       data-toggle="collapse"
                       data-target="#collapse4-5"
                       aria-expanded="false"
@@ -1745,23 +1890,28 @@ export default function Home() {
                       another asset?
                     </button>
                   </div>
-                  <div
-                    id="collapse4-5"
-                    className="collapse"
-                    aria-labelledby="heading4-5"
-                    data-parent="#accordionExample"
-                  >
-                    <div className="card-body coodiv-color-rgb(15 23 42)ish-blue-opacity-7 pt-0 pl-9 pr-15 coodiv-text-11 pb-9">
-                      No you do not. Fonts can be used on their own, so long as you
-                      do not redistribute the font itself to any other person.
+                  {accordion == "collapse4-5" && (
+                    <div
+                      id="collapse4-5"
+                      className="collapse"
+                      aria-labelledby="heading4-5"
+                      data-parent="#accordionExample"
+                      style={{ display: "block" }}
+                    >
+                      <div className="card-body coodiv-color-rgb(15 23 42)ish-blue-opacity-7 pt-0 pl-9 pr-15 coodiv-text-11 pb-9">
+                        No you do not. Fonts can be used on their own, so long
+                        as you do not redistribute the font itself to any other
+                        person.
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
+
       <div className="rts-cta-two shared-page-bg pt-120">
         <div className="container">
           <div className="rts-cta-two__wrapperr">
@@ -1807,15 +1957,19 @@ export default function Home() {
         <div className="container">
           <div className="row g-custom-x">
             <div className="col-lg-4">
-              <img src="img/logo.png" alt="" style={{ width: 200, height: 40 }} />
+              <img
+                src="img/logo.png"
+                alt=""
+                style={{ width: 200, height: 40 }}
+              />
               <div className="spacer-20" />
               <p>
-                We are HostItUp, a web hosting company with 24/7 customer support.
-                We provide best hosting solutions for your hosting needs. Our
-                clients from personal to corporate. Our data center are all over the
-                world to ensure your website is always up. You can choose shared
-                hosting, wordpress hosting or cloud hosting. You can also be hosting
-                reseller here. Happy hosting with us.
+                We are HostItUp, a web hosting company with 24/7 customer
+                support. We provide best hosting solutions for your hosting
+                needs. Our clients from personal to corporate. Our data center
+                are all over the world to ensure your website is always up. You
+                can choose shared hosting, wordpress hosting or cloud hosting.
+                You can also be hosting reseller here. Happy hosting with us.
               </p>
               <div className="spacer-10" />
               <div className="widget-two">
@@ -1875,7 +2029,9 @@ export default function Home() {
                         <a href="#">Careers</a>
                       </li>
                       <li>
-                        <a href="term-and-condition.html">Terms &amp; Conditions</a>
+                        <a href="term-and-condition.html">
+                          Terms &amp; Conditions
+                        </a>
                       </li>
                       <li>
                         <a href="privacy-policy.html">Privcay Policy</a>
@@ -1895,7 +2051,8 @@ export default function Home() {
               <div className="widget-two">
                 <h5>Newsletter</h5>
                 <p>
-                  Signup for our newsletter to get the latest news in your inbox.
+                  Signup for our newsletter to get the latest news in your
+                  inbox.
                 </p>
                 <form
                   action="blank.php"
@@ -1964,8 +2121,8 @@ export default function Home() {
                 <div className="de-flex">
                   <div className="de-flex-col">
                     <a href="index.html">
-                      Copyright 2024 - All Rights Reservered By Hasibul Technology
-                      Private Limited
+                      Copyright 2024 - All Rights Reservered By Hasibul
+                      Technology Private Limited
                     </a>
                   </div>
                   <ul className="menu-simple">
@@ -1984,10 +2141,9 @@ export default function Home() {
       </footer>
       {/* footer close */}
 
-
       <Script type="js" src="asset/js/main.js"></Script>
+      <Script type="js" src="js/bootstrap.min.js"></Script>
       <Script defer type="" src="asset/js/plugins/swiper.js"></Script>
     </>
-
   );
 }

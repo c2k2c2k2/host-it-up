@@ -13,7 +13,8 @@ export default function Document() {
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
         <title>
-          Best And Cheap Web Hosting | HostItUp Web Hosting Starting @INR 49/- month
+          Best And Cheap Web Hosting | HostItUp Web Hosting Starting @INR 49/-
+          month
         </title>
         <meta
           name="description"
@@ -48,14 +49,10 @@ export default function Document() {
         />
         <link rel="icon" type="image/ico" href="img/main-fav.png" />
         <link rel="stylesheet" href="fontawesome/css/all.min.css" />
-
-
-
       </Head>
       <body>
         <Main />
         <NextScript />
-
       </body>
     </Html>
   );
