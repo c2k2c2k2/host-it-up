@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { use } from "../../public/asset/js/plugins/swiper copy";
 import Swiper from "swiper";
 import { Pagination } from "swiper/modules";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowRight, faCheck, faMoneyBill, faStar, faTree } from '@fortawesome/free-solid-svg-icons'
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -657,16 +659,17 @@ export default function Home() {
               </div>
               <ul>
                 <li>
-                  <i className="fa-solid fa-check" /> Host 1 Website
+
+                  <FontAwesomeIcon icon={faCheck} /> Host 1 Website
                 </li>
                 <li>
-                  <i className="fa-solid fa-check" /> <b>10GB</b> SSD Disk Space
+                  <FontAwesomeIcon icon={faCheck} /> <b>10GB</b> SSD Disk Space
                 </li>
                 <li>
-                  <i className="fa-solid fa-check" /> <b>5</b> Email Account
+                  <FontAwesomeIcon icon={faCheck} /> <b>5</b> Email Account
                 </li>
                 <li>
-                  <i className="fa-solid fa-check" /> <b>Free SSL</b>{" "}
+                  <FontAwesomeIcon icon={faCheck} /> <b>Free SSL</b>{" "}
                   Certificate
                 </li>
                 <li>
@@ -674,7 +677,7 @@ export default function Home() {
                   <b>No Free</b> Domain
                 </li>
                 <li>
-                  <i className="fa-solid fa-check" /> <b>Unlimited</b> Bandwidth
+                  <FontAwesomeIcon icon={faCheck} /> <b>Unlimited</b> Bandwidth
                 </li>
                 <li>
                   Powered By{" "}
@@ -820,16 +823,16 @@ export default function Home() {
               </div>
               <ul>
                 <li>
-                  <i className="fa-solid fa-check" /> Host 2 Website
+                  <FontAwesomeIcon icon={faCheck} /> Host 2 Website
                 </li>
                 <li>
-                  <i className="fa-solid fa-check" /> <b>15GB</b> SSD Disk Space
+                  <FontAwesomeIcon icon={faCheck} /> <b>15GB</b> SSD Disk Space
                 </li>
                 <li>
-                  <i className="fa-solid fa-check" /> <b>10</b> Email Account
+                  <FontAwesomeIcon icon={faCheck} /> <b>10</b> Email Account
                 </li>
                 <li>
-                  <i className="fa-solid fa-check" /> <b>Free SSL</b>{" "}
+                  <FontAwesomeIcon icon={faCheck} /> <b>Free SSL</b>{" "}
                   Certificate
                 </li>
                 <li>
@@ -837,7 +840,7 @@ export default function Home() {
                   <b>No Free</b> Domain
                 </li>
                 <li>
-                  <i className="fa-solid fa-check" /> <b>Unlimited</b> Bandwidth
+                  <FontAwesomeIcon icon={faCheck} /> <b>Unlimited</b> Bandwidth
                 </li>
                 <li>
                   Powered By{" "}
@@ -983,23 +986,23 @@ export default function Home() {
               </div>
               <ul>
                 <li>
-                  <i className="fa-solid fa-check" /> Host 5 Website
+                  <FontAwesomeIcon icon={faCheck} /> Host 5 Website
                 </li>
                 <li>
-                  <i className="fa-solid fa-check" /> <b>25GB</b> SSD Disk Space
+                  <FontAwesomeIcon icon={faCheck} /> <b>25GB</b> SSD Disk Space
                 </li>
                 <li>
-                  <i className="fa-solid fa-check" /> <b>30</b> Email Account
+                  <FontAwesomeIcon icon={faCheck} /> <b>30</b> Email Account
                 </li>
                 <li>
-                  <i className="fa-solid fa-check" /> <b>Free SSL</b>{" "}
+                  <FontAwesomeIcon icon={faCheck} /> <b>Free SSL</b>{" "}
                   Certificate
                 </li>
                 <li>
-                  <i className="fa-solid fa-check" /> <b>Free</b> Domain
+                  <FontAwesomeIcon icon={faCheck} /> <b>Free</b> Domain
                 </li>
                 <li>
-                  <i className="fa-solid fa-check" /> <b>Unlimited</b> Bandwidth
+                  <FontAwesomeIcon icon={faCheck} /> <b>Unlimited</b> Bandwidth
                 </li>
                 <li>
                   Powered By{" "}
@@ -1147,23 +1150,23 @@ export default function Home() {
               </div>
               <ul>
                 <li>
-                  <i className="fa-solid fa-check" /> Host 5 Website
+                  <FontAwesomeIcon icon={faCheck} /> Host 5 Website
                 </li>
                 <li>
-                  <i className="fa-solid fa-check" /> <b>30GB</b> SSD Disk Space
+                  <FontAwesomeIcon icon={faCheck} /> <b>30GB</b> SSD Disk Space
                 </li>
                 <li>
-                  <i className="fa-solid fa-check" /> <b>35</b> Email Account
+                  <FontAwesomeIcon icon={faCheck} /> <b>35</b> Email Account
                 </li>
                 <li>
-                  <i className="fa-solid fa-check" /> <b>Free SSL</b>{" "}
+                  <FontAwesomeIcon icon={faCheck} /> <b>Free SSL</b>{" "}
                   Certificate
                 </li>
                 <li>
-                  <i className="fa-solid fa-check" /> <b>Free</b> Domain
+                  <FontAwesomeIcon icon={faCheck} /> <b>Free</b> Domain
                 </li>
                 <li>
-                  <i className="fa-solid fa-check" /> <b>Unlimited</b> Bandwidth
+                  <FontAwesomeIcon icon={faCheck} /> <b>Unlimited</b> Bandwidth
                 </li>
                 <li>
                   Powered By{" "}
@@ -1175,11 +1178,13 @@ export default function Home() {
           </div>
         </div>
         <p className="listdownpara">
-          <i className="fa-solid fa-money-bill" /> All plans are backed by our{" "}
+          <FontAwesomeIcon icon={faMoneyBill} />
+          All plans are backed by our{" "}
           <span className="listdownspan">7-day money back guarantee*</span>
         </p>
         <p className="listdownpara-two">
-          <i className="fa-solid fa-tree" /> Our team will conduct{" "}
+          <FontAwesomeIcon icon={faTree} />
+          Our team will conduct{" "}
           <mark>tree plantation</mark>
           when you make a yearly purchase.
         </p>
@@ -1912,6 +1917,7 @@ export default function Home() {
         </div>
       </section>
 
+      <br />
       <div className="rts-cta-two shared-page-bg pt-120">
         <div className="container">
           <div className="rts-cta-two__wrapperr">
@@ -2070,7 +2076,9 @@ export default function Home() {
                       type="text"
                     />{" "}
                     <a href="#" id="btn-subscribe">
-                      <i className="fa-solid fa-arrow-right bg-color-secondary" />
+                      <i className="fa-solid bg-color-secondary">
+                        <FontAwesomeIcon icon={faArrowRight} />
+                      </i>
                     </a>
                     <div className="clearfix" />
                   </div>
